@@ -21,10 +21,11 @@ func _process(delta):
 	if pos_count > 0:
 		target_pos /= pos_count 
 	
-		target_pos.x = position.x
+		if abs(target_pos.x - position.x) > 500.0:
+			current_target_pos.x = target_pos.x
 		
 		if abs(target_pos.y - position.y) > 500.0:
-			current_target_pos = target_pos
+			current_target_pos.y = target_pos.y
 		
 		var vec := current_target_pos - position
-		position += vec * delta
+		position += vec * delta * 3.0

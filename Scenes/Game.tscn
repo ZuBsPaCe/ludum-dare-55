@@ -17,7 +17,7 @@ shader = ExtResource("7_l4ihk")
 script = ExtResource("1_a8kk8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -768)
+position = Vector2(2432, -2304)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("1_mlqjk")
 
@@ -109,6 +109,11 @@ z_index = 0
 position = Vector2(-58.8016, -1705.63)
 rotation = 4.45058
 
+[node name="Rock18" parent="Rocks" instance=ExtResource("5_w354n")]
+z_index = 0
+position = Vector2(-58.8016, -1705.63)
+rotation = 4.45058
+
 [node name="Rock16" parent="Rocks" instance=ExtResource("5_w354n")]
 z_index = 0
 position = Vector2(853.943, -748.163)
@@ -119,7 +124,29 @@ z_index = 0
 position = Vector2(554.222, -1493.77)
 rotation = 2.87979
 
+[node name="Rock19" parent="Rocks" instance=ExtResource("5_w354n")]
+z_index = 0
+position = Vector2(536.885, -2275.53)
+rotation = 2.35619
+
+[node name="Rock20" parent="Rocks" instance=ExtResource("5_w354n")]
+z_index = 0
+position = Vector2(-21.0918, -2842.88)
+rotation = -0.261799
+
+[node name="Rock21" parent="Rocks" instance=ExtResource("5_w354n")]
+z_index = 0
+position = Vector2(164.781, -3447.42)
+rotation = -3.14159
+
+[node name="Rock22" parent="Rocks" instance=ExtResource("5_w354n")]
+z_index = 0
+position = Vector2(674.502, -3164.26)
+rotation = -1.83259
+
 [node name="Player" parent="." instance=ExtResource("1_sk4w4")]
+position = Vector2(2304, -2240)
+rotation = -1.5708
 
 [node name="Blocks" type="Node2D" parent="."]
 z_index = -2
@@ -164,12 +191,28 @@ position = Vector2(-2496, -2432)
 rotation = 1.0472
 
 [node name="Block10" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(2432, -1984)
-rotation = -1.309
+position = Vector2(2368, -1664)
+rotation = -1.57079
+
+[node name="Block13" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(3008, -2240)
+rotation = -1.57079
+
+[node name="Block14" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(1024, -3136)
+rotation = -0.785397
+
+[node name="Block15" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(1664, -3923)
+rotation = -1.0472
+
+[node name="Block16" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2560, -3392)
+rotation = -2.35619
 
 [node name="Block11" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(598, -2523)
-rotation = 0.240227
+position = Vector2(704, -2688)
+rotation = -0.261799
 
 [node name="Grips" type="Node2D" parent="."]
 z_index = -1
@@ -225,20 +268,24 @@ position = Vector2(448, -256)
 rotation = -0.261799
 
 [node name="Grip12" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(10, -2352)
-rotation = 0.0550186
+position = Vector2(256, -2240)
+rotation = -0.261799
 
 [node name="Grip13" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(64, -2590)
-rotation = 0.0550186
+position = Vector2(186, -2496)
+rotation = -0.261799
 
 [node name="Grip14" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(115, -2793)
-rotation = 0.0550186
+position = Vector2(128, -2688)
+rotation = -0.261799
 
 [node name="Grip15" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(178, -3028)
-rotation = 0.0550186
+position = Vector2(-64, -2880)
+rotation = -0.261799
+
+[node name="Grip25" parent="Grips" instance=ExtResource("4_f673y")]
+position = Vector2(-384, -2688)
+rotation = -0.785397
 
 [node name="Grip16" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(-1425, -2113)
@@ -258,20 +305,13 @@ position = Vector2(-128, -4928)
 [node name="Grip24" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(966, -5267)
 
-[node name="Grip25" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1600, -2944)
-
 [node name="Grip26" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1600, -3245)
-
-[node name="Grip27" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1600, -3520)
-
-[node name="Grip28" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1600, -3840)
+position = Vector2(2304, -2816)
+rotation = -0.523598
 
 [node name="Grip29" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1600, -4224)
+position = Vector2(1472, -2880)
+rotation = 0.523598
 
 [node name="Grip20" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(1088, -1984)

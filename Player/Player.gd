@@ -64,6 +64,7 @@ func _ready():
  
 func _process(delta):
 	var look_vec := (get_global_mouse_position() - head.global_position).normalized() * 4
+	look_vec = look_vec.rotated(-head.global_rotation)
 	left_eye.position = look_vec 
 	right_eye.position = look_vec
 
