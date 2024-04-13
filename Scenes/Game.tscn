@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5j25hdsfu8hf"]
+
+[ext_resource type="PackedScene" uid="uid://7xhhshn0ev2o" path="res://Player/Player.tscn" id="1_sk4w4"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+polygon = PackedVector2Array(-7680, 0, 8704, 0, 8704, 1024, -7680, 1024)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
+polygon = PackedVector2Array(-7680, 0, 8704, 0, 8704, 1024, -7680, 1024)
+
+[node name="Player" parent="." instance=ExtResource("1_sk4w4")]
