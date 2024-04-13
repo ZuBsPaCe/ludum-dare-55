@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c43fso3cy3cmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hktte"]
+
+[node name="Chain" type="PinJoint2D"]
+node_a = NodePath("..")
+node_b = NodePath("ChainBody")
+
+[node name="ChainBody" type="RigidBody2D" parent="."]
+position = Vector2(0, -147)
+collision_layer = 2
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainBody"]
+shape = SubResource("CircleShape2D_hktte")
+
+[node name="Polygon2D" type="Polygon2D" parent="ChainBody"]
+polygon = PackedVector2Array(0, -10, 9, -5, 9, 5, 0, 10, -9, 5, -9, -5)
