@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c43fso3cy3cmi"]
+[gd_scene load_steps=7 format=3 uid="uid://c43fso3cy3cmi"]
 
 [ext_resource type="Script" path="res://Chain/Chain.gd" id="1_pjiww"]
 [ext_resource type="Script" path="res://Chain/ChainBody.gd" id="2_7i2jm"]
+[ext_resource type="Texture2D" uid="uid://dgqtd80iod7ls" path="res://Robot/Leg.png" id="3_0rafp"]
+[ext_resource type="Texture2D" uid="uid://bx84xfre02h6s" path="res://Robot/Hand.png" id="4_66fxf"]
+[ext_resource type="Texture2D" uid="uid://cdlf0niwoa306" path="res://Robot/HandClosed.png" id="5_p1bfk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hktte"]
 
@@ -20,4 +23,27 @@ script = ExtResource("2_7i2jm")
 shape = SubResource("CircleShape2D_hktte")
 
 [node name="Polygon2D" type="Polygon2D" parent="ChainBody"]
+visible = false
 polygon = PackedVector2Array(0, -10, 9, -5, 9, 5, 0, 10, -9, 5, -9, -5)
+
+[node name="Leg" type="Sprite2D" parent="ChainBody"]
+modulate = Color(0.568627, 0.647059, 0.760784, 1)
+position = Vector2(0, 52)
+scale = Vector2(1, 3)
+texture = ExtResource("3_0rafp")
+
+[node name="Hand" type="Sprite2D" parent="ChainBody"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.756, 0.9, 0.8688, 1)
+position = Vector2(-1, -10)
+scale = Vector2(1.8, 2)
+texture = ExtResource("4_66fxf")
+
+[node name="HandClosed" type="Sprite2D" parent="ChainBody"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(0.756, 0.9, 0.8688, 1)
+position = Vector2(-1, -10)
+scale = Vector2(1.8, 2)
+texture = ExtResource("5_p1bfk")

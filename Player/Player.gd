@@ -16,6 +16,7 @@ const MAX_REACH := 620.0
 class ArmInfo:
 	var hold_pos: Vector2
 	var sliding: bool
+	var holding: bool
 
 	var joints := []
 	var bodies := []
@@ -24,14 +25,14 @@ class ArmInfo:
 	
 	var shoulder_joint: PinJoint2D
 	
-	func init(p_player: RigidBody2D, hand_group: String):
+	func init(p_player: RigidBody2D, hand_group: String, left: bool):
 		player = p_player
 		
 		hand = bodies.back()
-		hand.gravity_scale = 0.0
 		hand.mass = 0.5
-		hand.modulate = Color.GREEN
 		hand.add_to_group(hand_group)
+		
+		hand.enable_hand(left)
 		
 		shoulder_joint = joints.front()
 		
@@ -47,11 +48,11 @@ func _ready():
 	GlobalState.player = self
 	
 	add_chain(self, true, 6, FIRST_CHAIN_OFFSET_LEFT, left_arm.joints, left_arm.bodies)
-	left_arm.init(self, "LeftHand")
+	left_arm.init(self, "LeftHand", true)
 	GlobalState.left_hand = left_arm.hand
 
 	add_chain(self, true, 6, FIRST_CHAIN_OFFSET_RIGHT, right_arm.joints, right_arm.bodies)
-	right_arm.init(self, "RightHand")
+	right_arm.init(self, "RightHand", false)
 	GlobalState.right_hand = right_arm.hand
  
 
@@ -60,7 +61,7 @@ func _physics_process(delta):
 	_process_arm(delta, right_arm, "HoldRight", false)
 	
 
-static func _process_arm(
+func _process_arm(
 		delta,
 		arm: ArmInfo,
 		hold_action: String,
@@ -69,21 +70,25 @@ static func _process_arm(
 	
 	if Input.is_action_just_pressed(hold_action):
 		arm.sliding = true
+		arm.hand.close_hand()
 		
 		for joint in arm.joints:
 			joint.softness = HOLD_SOFTNESS
 		
 	elif Input.is_action_just_released(hold_action):
+		arm.hand.open_hand()
+		
 		for joint in arm.joints:
 			joint.softness = DEFAULT_SOFTNESS
 	
 	var impulse: Vector2
 	
 	var target_pos: Vector2
-	var is_holding := false
+	arm.holding = false
+	arm.hand.gravity_scale = 1.0
 	if Input.is_action_pressed(hold_action):
 		if (is_left && GlobalState.left_grip_count > 0) or (!is_left && GlobalState.right_grip_count > 0):
-			is_holding = true
+			arm.holding = true
 			if arm.sliding:
 				arm.sliding = false
 				arm.hold_pos = arm.hand.global_position
@@ -93,15 +98,28 @@ static func _process_arm(
 			arm.hand.set_fixed_velocity(impulse)
 			arm.hand.gravity_scale = 0.0
 			
-			var push = Input.get_last_mouse_velocity().x
-			push = clampf(push, -100, 100)
-			arm.player.apply_central_impulse(Vector2.RIGHT * push * 0.05)
+			var push := Vector2.ZERO
+			
+			var push_side := Input.get_last_mouse_velocity().x
+			push_side = clampf(push_side, -100, 100)
+			push += Vector2.RIGHT * push_side * 0.05
+			
+			if left_arm.holding and right_arm.holding:
+				var push_vert := Input.get_last_mouse_velocity().y
+				push_vert = clampf(push_vert, -100, 100)
+				push += Vector2.DOWN * push_vert * 0.1
+				print(push_vert)
+			
+			if push != Vector2.ZERO:
+				arm.player.apply_central_impulse(push)
+			
+			
 		else:
 			arm.sliding = true
 	else:
 		arm.sliding = false
 	
-	if !is_holding:
+	if !arm.holding:
 		target_pos = arm.player.get_global_mouse_position()
 	
 		var offset = target_pos - arm.shoulder_joint.global_position
@@ -116,8 +134,6 @@ static func _process_arm(
 		else:
 			arm.hand.unset_fixed_velocity()
 
-		
-		arm.hand.gravity_scale = 0.0
 		
 
 func add_chain(parent: Node2D, first: bool, count: int, chain_offset: Vector2, joint_list: Array, body_list: Array):

@@ -26,4 +26,5 @@ func _process(delta):
 		if abs(target_pos.y - position.y) > 500.0:
 			current_target_pos = target_pos
 		
-		position = lerp(position, current_target_pos, 0.5)
+		var vec := current_target_pos - position
+		position += vec * delta
