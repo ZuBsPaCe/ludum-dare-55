@@ -12,8 +12,10 @@ const FIRST_CHAIN_OFFSET_RIGHT := Vector2(50.0, 0.0)
 
 const MAX_REACH := 620.0
 
+
 class ArmInfo:
 	var hold_pos: Vector2
+	var sliding: bool
 
 	var joints := []
 	var bodies := []
@@ -66,19 +68,10 @@ static func _process_arm(
 	
 	
 	if Input.is_action_just_pressed(hold_action):
-		arm.hold_pos = arm.hand.global_position
+		arm.sliding = true
 		
 		for joint in arm.joints:
 			joint.softness = HOLD_SOFTNESS
-		
-		#var summed_dist := 0.0
-		#for i in range(arm.bodies.size() - 1):
-			#summed_dist += (arm.bodies[i].global_position - arm.bodies[i + 1].global_position).length()
-		#
-		#print(summed_dist)
-		#if summed_dist > 1330:
-		var offset = arm.joints[1].global_position - arm.joints[0].global_position
-		arm.player.apply_central_impulse(offset.normalized() * 500)
 		
 	elif Input.is_action_just_released(hold_action):
 		for joint in arm.joints:
@@ -87,20 +80,28 @@ static func _process_arm(
 	var impulse: Vector2
 	
 	var target_pos: Vector2
+	var is_holding := false
 	if Input.is_action_pressed(hold_action):
-		if (is_left && GlobalState.left_grip_count == 0) or (!is_left && GlobalState.right_grip_count == 0):
-			arm.hold_pos.y += 100.0 * delta
+		if (is_left && GlobalState.left_grip_count > 0) or (!is_left && GlobalState.right_grip_count > 0):
+			is_holding = true
+			if arm.sliding:
+				arm.sliding = false
+				arm.hold_pos = arm.hand.global_position
 		
-		target_pos = arm.hold_pos
-		impulse = (target_pos - arm.hand.global_position) * 50.0 
-		arm.hand.set_fixed_velocity(impulse)
-		arm.hand.gravity_scale = 0.0
-		
-		var push = Input.get_last_mouse_velocity().x
-		push = clampf(push, -100, 100)
-		arm.player.apply_central_impulse(Vector2.RIGHT * push * 0.05)
-		
+			target_pos = arm.hold_pos
+			impulse = (target_pos - arm.hand.global_position) * 50.0 
+			arm.hand.set_fixed_velocity(impulse)
+			arm.hand.gravity_scale = 0.0
+			
+			var push = Input.get_last_mouse_velocity().x
+			push = clampf(push, -100, 100)
+			arm.player.apply_central_impulse(Vector2.RIGHT * push * 0.05)
+		else:
+			arm.sliding = true
 	else:
+		arm.sliding = false
+	
+	if !is_holding:
 		target_pos = arm.player.get_global_mouse_position()
 	
 		var offset = target_pos - arm.shoulder_joint.global_position
@@ -109,9 +110,13 @@ static func _process_arm(
 		offset = offset.limit_length(MAX_REACH)
 		target_pos = arm.shoulder_joint.global_position + offset
 
-		impulse = (target_pos - arm.hand.global_position) * 10.0 
+		if !arm.sliding:
+			impulse = (target_pos - arm.hand.global_position) * 10.0
+			arm.hand.set_fixed_velocity(impulse)
+		else:
+			arm.hand.unset_fixed_velocity()
 
-		arm.hand.set_fixed_velocity(impulse)
+		
 		arm.hand.gravity_scale = 0.0
 		
 

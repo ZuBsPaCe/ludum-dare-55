@@ -24,36 +24,48 @@ polygon = PackedVector2Array(-7680, 0, 8704, 0, 8704, 1024, -7680, 1024)
 
 [node name="Player" parent="." instance=ExtResource("1_sk4w4")]
 
-[node name="Grip02" parent="." instance=ExtResource("4_7di1l")]
+[node name="Grips" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Grip02" parent="Grips" instance=ExtResource("4_7di1l")]
 position = Vector2(-256, -448)
 rotation = -0.261799
 
-[node name="Grip03" parent="." instance=ExtResource("4_7di1l")]
+[node name="Grip03" parent="Grips" instance=ExtResource("4_7di1l")]
 position = Vector2(512, -576)
 rotation = 0.523598
 
-[node name="Grip04" parent="." instance=ExtResource("4_7di1l")]
+[node name="Grip04" parent="Grips" instance=ExtResource("4_7di1l")]
 position = Vector2(-448, -1024)
 rotation = -0.785397
 
-[node name="Grip05" parent="." instance=ExtResource("4_7di1l")]
+[node name="Grip05" parent="Grips" instance=ExtResource("4_7di1l")]
 position = Vector2(576, -1344)
 rotation = -0.261799
 
-[node name="Grip07" parent="." instance=ExtResource("4_7di1l")]
+[node name="Grip07" parent="Grips" instance=ExtResource("4_7di1l")]
 position = Vector2(-832, -1664)
 rotation = 0.261799
 
-[node name="Grip01" parent="." instance=ExtResource("4_f673y")]
+[node name="Grip10" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(-192, -576)
+rotation = 1.83259
+
+[node name="Grip01" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(-512, -576)
 rotation = 0.261799
 
-[node name="Grip06" parent="." instance=ExtResource("4_f673y")]
+[node name="Grip06" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(832, -704)
 rotation = 0.261799
 
-[node name="Grip08" parent="." instance=ExtResource("4_f673y")]
+[node name="Grip08" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(512, -960)
 
-[node name="Grip09" parent="." instance=ExtResource("4_f673y")]
+[node name="Grip09" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(-896, -1088)
+rotation = 0.261799
+
+[node name="Grip11" parent="Grips" instance=ExtResource("4_f673y")]
+position = Vector2(448, -320)
+rotation = -0.261799

@@ -9,3 +9,6 @@ func _ready():
 
 func set_fixed_velocity(velocity: Vector2):
 	_chainBody.set_fixed_velocity(velocity)
+
+func unset_fixed_velocity():
+	_chainBody.unset_fixed_velocity()
