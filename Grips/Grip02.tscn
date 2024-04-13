@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq53t6yx02tkv"]
+
+[ext_resource type="Script" path="res://Grips/Grip.gd" id="1_1fnlx"]
+
+[node name="Grip02" type="Area2D" groups=["Grip"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_1fnlx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-512, -64, 512, -64, 512, 0, -512, 0)
+
+[node name="Sprite" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-512, -64, 512, -64, 512, 0, -512, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

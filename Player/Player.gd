@@ -22,11 +22,14 @@ class ArmInfo:
 	
 	var shoulder_joint: PinJoint2D
 	
-	func init():
+	func init(p_player: RigidBody2D, hand_group: String):
+		player = p_player
+		
 		hand = bodies.back()
 		hand.gravity_scale = 0.0
 		hand.mass = 0.5
 		hand.modulate = Color.GREEN
+		hand.add_to_group(hand_group)
 		
 		shoulder_joint = joints.front()
 		
@@ -41,26 +44,25 @@ var right_arm := ArmInfo.new()
 func _ready():
 	GlobalState.player = self
 	
-	left_arm.player = self
 	add_chain(self, true, 6, FIRST_CHAIN_OFFSET_LEFT, left_arm.joints, left_arm.bodies)
-	left_arm.init()
+	left_arm.init(self, "LeftHand")
 	GlobalState.left_hand = left_arm.hand
 
-	right_arm.player = self
 	add_chain(self, true, 6, FIRST_CHAIN_OFFSET_RIGHT, right_arm.joints, right_arm.bodies)
-	right_arm.init()
+	right_arm.init(self, "RightHand")
 	GlobalState.right_hand = right_arm.hand
  
 
 func _physics_process(delta):
-	_process_arm(delta, left_arm, "HoldLeft")
-	_process_arm(delta, right_arm, "HoldRight")
+	_process_arm(delta, left_arm, "HoldLeft", true)
+	_process_arm(delta, right_arm, "HoldRight", false)
 	
 
 static func _process_arm(
 		delta,
 		arm: ArmInfo,
-		hold_action: String):
+		hold_action: String,
+		is_left: bool):
 	
 	
 	if Input.is_action_just_pressed(hold_action):
@@ -86,6 +88,9 @@ static func _process_arm(
 	
 	var target_pos: Vector2
 	if Input.is_action_pressed(hold_action):
+		if (is_left && GlobalState.left_grip_count == 0) or (!is_left && GlobalState.right_grip_count == 0):
+			arm.hold_pos.y += 100.0 * delta
+		
 		target_pos = arm.hold_pos
 		impulse = (target_pos - arm.hand.global_position) * 50.0 
 		arm.hand.set_fixed_velocity(impulse)
