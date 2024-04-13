@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwa28rh3t15jm"]
+[gd_scene load_steps=3 format=3 uid="uid://bwa28rh3t15jm"]
 
 [ext_resource type="Script" path="res://Grips/Grip.gd" id="1_hhb2e"]
+[ext_resource type="Texture2D" uid="uid://d146vmjw5enc2" path="res://Rock/Grip01.png" id="2_csjlm"]
 
 [node name="Grip01" type="Area2D" groups=["Grip"]]
 collision_layer = 4
@@ -8,10 +9,12 @@ collision_mask = 2
 script = ExtResource("1_hhb2e")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-64, -64, 128, -64, 128, 0, -64, 0)
+polygon = PackedVector2Array(-192, -64, 256, -64, 256, 0, -192, 0)
 
-[node name="Sprite" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-64, -64, 128, -64, 128, 0, -64, 0)
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(1, 0.6)
+texture = ExtResource("2_csjlm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

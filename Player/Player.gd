@@ -43,6 +43,9 @@ class ArmInfo:
 var left_arm := ArmInfo.new()
 var right_arm := ArmInfo.new()
 
+var head: Sprite2D
+var left_eye: Sprite2D
+var right_eye: Sprite2D
 
 func _ready():
 	GlobalState.player = self
@@ -54,7 +57,16 @@ func _ready():
 	add_chain(self, true, 6, FIRST_CHAIN_OFFSET_RIGHT, right_arm.joints, right_arm.bodies)
 	right_arm.init(self, "RightHand", false)
 	GlobalState.right_hand = right_arm.hand
+	
+	head = get_node("%Head")
+	left_eye = get_node("%LeftEye")
+	right_eye = get_node("%RightEye")
  
+func _process(delta):
+	var look_vec := (get_global_mouse_position() - head.global_position).normalized() * 4
+	left_eye.position = look_vec 
+	right_eye.position = look_vec
+
 
 func _physics_process(delta):
 	_process_arm(delta, left_arm, "HoldLeft", true)

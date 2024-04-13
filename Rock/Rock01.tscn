@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://wbuopqhc15fd"]
+
+[ext_resource type="Texture2D" uid="uid://cyap3oxxvcl2" path="res://Rock/Rock2.png" id="1_gkqtu"]
+
+[node name="Sprite2D" type="Sprite2D"]
+z_index = -3
+texture_repeat = 2
+texture = ExtResource("1_gkqtu")
+region_rect = Rect2(0, 0, 50, 50)
