@@ -31,6 +31,10 @@ Hold={
 ]
 }
 
+[physics]
+
+2d/default_gravity=1980.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
