@@ -11,7 +11,7 @@ node_b = NodePath("ChainBody")
 script = ExtResource("1_pjiww")
 
 [node name="ChainBody" type="RigidBody2D" parent="."]
-position = Vector2(0, -147)
+position = Vector2(0, -100)
 collision_layer = 2
 mass = 0.01
 script = ExtResource("2_7i2jm")

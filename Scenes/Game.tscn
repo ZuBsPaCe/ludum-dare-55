@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=4 format=3 uid="uid://b5j25hdsfu8hf"]
 
+[ext_resource type="Script" path="res://Game/Game.gd" id="1_a8kk8"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
 [ext_resource type="PackedScene" uid="uid://7xhhshn0ev2o" path="res://Player/Player.tscn" id="1_sk4w4"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_a8kk8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -768)
