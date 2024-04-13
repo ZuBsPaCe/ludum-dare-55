@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=3 format=3 uid="uid://b5j25hdsfu8hf"]
 
+[ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
 [ext_resource type="PackedScene" uid="uid://7xhhshn0ev2o" path="res://Player/Player.tscn" id="1_sk4w4"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -1344)
-zoom = Vector2(0.25, 0.25)
+position = Vector2(0, -768)
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("1_mlqjk")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 

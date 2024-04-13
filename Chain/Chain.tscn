@@ -20,5 +20,4 @@ script = ExtResource("2_7i2jm")
 shape = SubResource("CircleShape2D_hktte")
 
 [node name="Polygon2D" type="Polygon2D" parent="ChainBody"]
-scale = Vector2(10, 10)
 polygon = PackedVector2Array(0, -10, 9, -5, 9, 5, 0, 10, -9, 5, -9, -5)
