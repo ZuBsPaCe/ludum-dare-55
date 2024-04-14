@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://7xhhshn0ev2o"]
+[gd_scene load_steps=9 format=3 uid="uid://7xhhshn0ev2o"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_wydgr"]
 [ext_resource type="PackedScene" uid="uid://c43fso3cy3cmi" path="res://Chain/Chain.tscn" id="2_obags"]
 [ext_resource type="Texture2D" uid="uid://d28357esaqxo" path="res://Robot/Body.png" id="3_20g6q"]
 [ext_resource type="Texture2D" uid="uid://c8vscplardxi2" path="res://Robot/Head.png" id="4_ddg61"]
+[ext_resource type="Texture2D" uid="uid://dkccta23ulvcv" path="res://Robot/BrokenLeg.png" id="4_s1df0"]
 [ext_resource type="Texture2D" uid="uid://cqhvqklrq42c8" path="res://Robot/Eye.png" id="5_y3r5n"]
+[ext_resource type="Texture2D" uid="uid://dgqtd80iod7ls" path="res://Robot/Leg.png" id="6_po66c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycjfc"]
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 collision_layer = 2
@@ -12,6 +16,60 @@ max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_wydgr")
 chain_scene = ExtResource("2_obags")
+
+[node name="LeftLeg" type="PinJoint2D" parent="."]
+position = Vector2(-35, 55)
+node_a = NodePath("..")
+node_b = NodePath("LeftUpperLeg")
+
+[node name="LeftUpperLeg" type="RigidBody2D" parent="LeftLeg"]
+position = Vector2(0, 64)
+collision_layer = 2
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg/LeftUpperLeg"]
+shape = SubResource("CircleShape2D_ycjfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftLeg/LeftUpperLeg"]
+modulate = Color(0.568627, 0.647059, 0.760784, 1)
+position = Vector2(0, -32)
+scale = Vector2(1, 2)
+texture = ExtResource("6_po66c")
+
+[node name="Knee" type="PinJoint2D" parent="LeftLeg/LeftUpperLeg"]
+node_a = NodePath("..")
+node_b = NodePath("LeftLowerLeg")
+
+[node name="LeftLowerLeg" type="RigidBody2D" parent="LeftLeg/LeftUpperLeg/Knee"]
+position = Vector2(0, 32)
+collision_layer = 2
+mass = 0.01
+
+[node name="Sprite2D2" type="Sprite2D" parent="LeftLeg/LeftUpperLeg/Knee/LeftLowerLeg"]
+modulate = Color(0.568627, 0.647059, 0.760784, 1)
+position = Vector2(0, -16)
+texture = ExtResource("4_s1df0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LeftLeg/LeftUpperLeg/Knee/LeftLowerLeg"]
+shape = SubResource("CircleShape2D_ycjfc")
+
+[node name="RightLeg" type="PinJoint2D" parent="."]
+position = Vector2(35, 55)
+node_a = NodePath("..")
+node_b = NodePath("RightUpperLeg")
+
+[node name="RightUpperLeg" type="RigidBody2D" parent="RightLeg"]
+position = Vector2(0, 32)
+collision_layer = 2
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg/RightUpperLeg"]
+shape = SubResource("CircleShape2D_ycjfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightLeg/RightUpperLeg"]
+modulate = Color(0.568627, 0.647059, 0.760784, 1)
+position = Vector2(0, -16)
+texture = ExtResource("4_s1df0")
 
 [node name="Body" type="Sprite2D" parent="."]
 modulate = Color(0.568627, 0.647059, 0.760784, 1)

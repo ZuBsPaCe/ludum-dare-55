@@ -796,6 +796,14 @@ rotation = -1.58283
 position = Vector2(749, -6523)
 rotation = 0.0852852
 
+[node name="Block66" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(1476, -6920)
+rotation = -0.676377
+
+[node name="Block67" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2196, -7660)
+rotation = -0.884261
+
 [node name="Block23" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(1768, -6464)
 rotation = -0.00746446
