@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalState="*res://Globals/GlobalState.gd"
+Enums="*res://Globals/Enums.gd"
+Sounds="*res://Sounds/Sounds.gd"
 
 [display]
 

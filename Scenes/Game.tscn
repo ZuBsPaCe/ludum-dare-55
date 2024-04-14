@@ -1,22 +1,61 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=58 format=3 uid="uid://b5j25hdsfu8hf"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_a8kk8"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
 [ext_resource type="PackedScene" uid="uid://7xhhshn0ev2o" path="res://Player/Player.tscn" id="1_sk4w4"]
+[ext_resource type="PackedScene" uid="uid://v5u63dd0ir48" path="res://Sounds/SoundItem.tscn" id="3_hurs7"]
 [ext_resource type="PackedScene" uid="uid://dq53t6yx02tkv" path="res://Grips/Grip02.tscn" id="4_7di1l"]
 [ext_resource type="PackedScene" uid="uid://bwa28rh3t15jm" path="res://Grips/Grip01.tscn" id="4_f673y"]
+[ext_resource type="AudioStream" uid="uid://bvqphd2l060s2" path="res://Sounds/Ouch/Ouch01.mp3" id="4_ppkyl"]
+[ext_resource type="AudioStream" uid="uid://bkfv4d23rf5hp" path="res://Sounds/Ouch/Ouch02.mp3" id="5_0qtyj"]
 [ext_resource type="PackedScene" uid="uid://36n5orlwyadx" path="res://Rock/RockFill.tscn" id="5_2ysuq"]
 [ext_resource type="PackedScene" uid="uid://wbuopqhc15fd" path="res://Rock/Rock01.tscn" id="5_w354n"]
 [ext_resource type="PackedScene" uid="uid://tsrposeviyij" path="res://Block/Block01.tscn" id="6_585x6"]
+[ext_resource type="AudioStream" uid="uid://mdp5jj56215d" path="res://Sounds/Ouch/Ouch03.mp3" id="6_nlxnj"]
+[ext_resource type="AudioStream" uid="uid://6db6edgod0k4" path="res://Sounds/Ouch/Ouch04.mp3" id="7_63gik"]
 [ext_resource type="Shader" path="res://Background/Background.gdshader" id="7_l4ihk"]
 [ext_resource type="PackedScene" uid="uid://cr4nasddbixie" path="res://Sign/Sign.tscn" id="7_wy4g8"]
+[ext_resource type="AudioStream" uid="uid://bsoucolo7r8xg" path="res://Sounds/Ouch/Ouch05.mp3" id="8_1elac"]
 [ext_resource type="Texture2D" uid="uid://crj0cs2labbup" path="res://Sign/Section1.png" id="8_g1uj3"]
 [ext_resource type="Texture2D" uid="uid://dwj25ljs8j43w" path="res://Background/white_32x32.png" id="8_wedw8"]
 [ext_resource type="Texture2D" uid="uid://1hnpv4sqvbdc" path="res://Sign/Section3.png" id="9_mefg0"]
+[ext_resource type="AudioStream" uid="uid://cvigy5u7k4b6i" path="res://Sounds/Ouch/Ouch06.mp3" id="9_ykfn2"]
 [ext_resource type="Texture2D" uid="uid://bui8smdnmbj82" path="res://Sign/Section2.png" id="10_ijbet"]
+[ext_resource type="AudioStream" uid="uid://dlcj0cxjmfom" path="res://Sounds/Ouch/Ouch07.mp3" id="10_nfbxh"]
 [ext_resource type="Texture2D" uid="uid://b1p3qua8lbm27" path="res://Sign/Section4.png" id="11_5boyw"]
+[ext_resource type="AudioStream" uid="uid://cjfiiq52ckqcy" path="res://Sounds/Ouch/Ouch08.mp3" id="11_eumtl"]
+[ext_resource type="AudioStream" uid="uid://bvb3eef0xhp0m" path="res://Sounds/Ouch/Ouch09.mp3" id="12_a4vqf"]
 [ext_resource type="Texture2D" uid="uid://44ymbhi0nb35" path="res://Sign/Section5.png" id="12_sfcp6"]
+[ext_resource type="AudioStream" uid="uid://bttve5514ndu5" path="res://Sounds/Ouch/Ouch10.mp3" id="13_csyrw"]
+[ext_resource type="AudioStream" uid="uid://bgs26sn0ibrmg" path="res://Sounds/Ouch/Ouch11.mp3" id="14_bluk8"]
 [ext_resource type="PackedScene" uid="uid://dlxrk0naj2w77" path="res://Block/Block02.tscn" id="15_8jfae"]
+[ext_resource type="AudioStream" uid="uid://b26k2xuic1rje" path="res://Sounds/Ouch/Ouch12.mp3" id="15_627uo"]
+[ext_resource type="AudioStream" uid="uid://dalhrb3rice4w" path="res://Sounds/Ouch/Ouch13.mp3" id="16_6pxhv"]
+[ext_resource type="AudioStream" uid="uid://b02cpq01jb34x" path="res://Sounds/Ouch/Ouch14.mp3" id="17_j80d4"]
+[ext_resource type="AudioStream" uid="uid://kyedurrqwn0v" path="res://Sounds/Ouch/Ouch15.mp3" id="18_qipxs"]
+[ext_resource type="AudioStream" uid="uid://bwr8fejo2mbsx" path="res://Sounds/Voices/Voice01.mp3" id="19_3upib"]
+[ext_resource type="AudioStream" uid="uid://c1crtgqq27umj" path="res://Sounds/Voices/Voice02.mp3" id="20_fx4tc"]
+[ext_resource type="AudioStream" uid="uid://d3qtvf4nn3dc5" path="res://Sounds/Voices/Voice03.mp3" id="21_yc8at"]
+[ext_resource type="AudioStream" uid="uid://cc84f184aa7gf" path="res://Sounds/Voices/Voice04.mp3" id="22_3v0gf"]
+[ext_resource type="AudioStream" uid="uid://hkbbo001x0uu" path="res://Sounds/Voices/Voice05.mp3" id="23_o1a8d"]
+[ext_resource type="AudioStream" uid="uid://deonb65u2mst" path="res://Sounds/Voices/Voice06.mp3" id="24_nnsxh"]
+[ext_resource type="AudioStream" uid="uid://ba086raq4vkwx" path="res://Sounds/Voices/Voice07.mp3" id="25_r52qb"]
+[ext_resource type="AudioStream" uid="uid://bnyuyb3qlbjyl" path="res://Sounds/Voices/Voice08.mp3" id="26_uud07"]
+[ext_resource type="AudioStream" uid="uid://dmwitxs0ter2m" path="res://Sounds/Voices/Voice09.mp3" id="27_8tobr"]
+[ext_resource type="AudioStream" uid="uid://b3ujrlmpotc18" path="res://Sounds/Voices/Voice10.mp3" id="28_f4shb"]
+[ext_resource type="AudioStream" uid="uid://df0xjqxunoqv0" path="res://Sounds/Voices/Voice11.mp3" id="29_xtmf2"]
+[ext_resource type="AudioStream" uid="uid://bbpkxi0lugbue" path="res://Sounds/Grip/Grip01.mp3" id="30_u7586"]
+[ext_resource type="AudioStream" uid="uid://drhbynpmm8jun" path="res://Sounds/Grip/Grip02.mp3" id="31_pa371"]
+[ext_resource type="AudioStream" uid="uid://dtit4nqpfw0s7" path="res://Sounds/Grip/Grip03.mp3" id="32_0vhdh"]
+[ext_resource type="AudioStream" uid="uid://dh1pgeagpkrdf" path="res://Sounds/Grip/Grip04.mp3" id="33_23uc4"]
+[ext_resource type="AudioStream" uid="uid://ym0b0sfhwn3h" path="res://Sounds/Grip/Grip05.mp3" id="34_dk0em"]
+[ext_resource type="AudioStream" uid="uid://dkr04v7sax1ii" path="res://Sounds/Grip/Grip06.mp3" id="35_pboud"]
+[ext_resource type="AudioStream" uid="uid://bl84xwgice7vp" path="res://Sounds/Grip/Grip07.mp3" id="36_khq4y"]
+[ext_resource type="AudioStream" uid="uid://dr2fvmle2jhcq" path="res://Sounds/Grip/Grip08.mp3" id="37_62jbl"]
+[ext_resource type="AudioStream" uid="uid://c8d0kp1lxi5s1" path="res://Sounds/Grip/Grip09.mp3" id="38_mq4n7"]
+[ext_resource type="AudioStream" uid="uid://cty2wvfsl5v2d" path="res://Sounds/Grip/Grip10.mp3" id="39_ebxoo"]
+[ext_resource type="AudioStream" uid="uid://dmsmdki2l3mca" path="res://Sounds/Sliding/Sliding02.mp3" id="40_fw4cd"]
+[ext_resource type="AudioStream" uid="uid://c81yuw3o86ybe" path="res://Sounds/Sliding/Sliding01.mp3" id="40_ofyqj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cebyn"]
 shader = ExtResource("7_l4ihk")
@@ -28,6 +67,147 @@ script = ExtResource("1_a8kk8")
 position = Vector2(2432, -2304)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("1_mlqjk")
+
+[node name="Sounds" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="SoundItem" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("4_ppkyl")
+
+[node name="SoundItem2" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("5_0qtyj")
+
+[node name="SoundItem3" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("6_nlxnj")
+
+[node name="SoundItem4" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("7_63gik")
+
+[node name="SoundItem5" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("8_1elac")
+
+[node name="SoundItem6" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("9_ykfn2")
+
+[node name="SoundItem7" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("10_nfbxh")
+
+[node name="SoundItem8" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("11_eumtl")
+
+[node name="SoundItem9" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("12_a4vqf")
+
+[node name="SoundItem10" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("13_csyrw")
+
+[node name="SoundItem11" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("14_bluk8")
+
+[node name="SoundItem12" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("15_627uo")
+
+[node name="SoundItem13" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("16_6pxhv")
+
+[node name="SoundItem14" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("17_j80d4")
+
+[node name="SoundItem15" parent="Sounds" instance=ExtResource("3_hurs7")]
+Stream = ExtResource("18_qipxs")
+
+[node name="SoundItem16" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("19_3upib")
+
+[node name="SoundItem17" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("20_fx4tc")
+
+[node name="SoundItem18" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("21_yc8at")
+
+[node name="SoundItem19" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("22_3v0gf")
+
+[node name="SoundItem20" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("23_o1a8d")
+
+[node name="SoundItem21" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("24_nnsxh")
+
+[node name="SoundItem22" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("25_r52qb")
+
+[node name="SoundItem23" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("26_uud07")
+
+[node name="SoundItem24" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("27_8tobr")
+
+[node name="SoundItem25" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("28_f4shb")
+
+[node name="SoundItem26" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 3
+Stream = ExtResource("29_xtmf2")
+
+[node name="SoundItem27" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("30_u7586")
+
+[node name="SoundItem28" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("31_pa371")
+
+[node name="SoundItem29" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("32_0vhdh")
+
+[node name="SoundItem30" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("33_23uc4")
+
+[node name="SoundItem31" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("34_dk0em")
+
+[node name="SoundItem32" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("35_pboud")
+
+[node name="SoundItem33" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("36_khq4y")
+
+[node name="SoundItem34" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("37_62jbl")
+
+[node name="SoundItem35" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("38_mq4n7")
+
+[node name="SoundItem36" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 1
+Stream = ExtResource("39_ebxoo")
+
+[node name="SoundItem37" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 2
+Stream = ExtResource("40_ofyqj")
+DB = -15.0
+
+[node name="SoundItem38" parent="Sounds" instance=ExtResource("3_hurs7")]
+Type = 2
+Stream = ExtResource("40_fw4cd")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.141176, 0.619608, 0.878431, 1)

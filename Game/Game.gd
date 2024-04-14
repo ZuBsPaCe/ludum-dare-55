@@ -5,6 +5,8 @@ extends Node2D
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
+	Sounds.register_sounds(get_node("%Sounds"))
+	
 
 func _process(delta):
 	if OS.get_name() != "Web":

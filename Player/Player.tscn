@@ -8,6 +8,8 @@
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 2
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_wydgr")
 chain_scene = ExtResource("2_obags")
 
@@ -48,3 +50,5 @@ position = Vector2(12, -140)
 unique_name_in_owner = true
 modulate = Color(1, 0.2, 0.2, 1)
 texture = ExtResource("5_y3r5n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

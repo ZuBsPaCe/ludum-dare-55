@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://v5u63dd0ir48"]
+
+[ext_resource type="Script" path="res://Sounds/SoundItem.gd" id="1_bdjaj"]
+
+[node name="SoundItem" type="Node"]
+script = ExtResource("1_bdjaj")

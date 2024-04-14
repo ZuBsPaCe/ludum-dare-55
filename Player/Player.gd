@@ -70,8 +70,17 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	var was_sliding = left_arm.sliding or right_arm.sliding
+	
 	_process_arm(delta, left_arm, "HoldLeft", true)
 	_process_arm(delta, right_arm, "HoldRight", false)
+	
+	var sliding = left_arm.sliding or right_arm.sliding
+	
+	if !was_sliding and sliding:
+		Sounds.play_loop(self, Enums.SoundType.Slide)
+	elif was_sliding and !sliding:
+		Sounds.stop_loop(Enums.SoundType.Slide)
 	
 
 func _process_arm(
@@ -79,7 +88,6 @@ func _process_arm(
 		arm: ArmInfo,
 		hold_action: String,
 		is_left: bool):
-	
 	
 	if Input.is_action_just_pressed(hold_action):
 		arm.sliding = true
@@ -105,6 +113,7 @@ func _process_arm(
 			if arm.sliding:
 				arm.sliding = false
 				arm.hold_pos = arm.hand.global_position
+				Sounds.play(self, Enums.SoundType.Grip)
 		
 			target_pos = arm.hold_pos
 			impulse = (target_pos - arm.hand.global_position) * 50.0 
@@ -121,7 +130,7 @@ func _process_arm(
 				var push_vert := Input.get_last_mouse_velocity().y
 				push_vert = clampf(push_vert, -100, 100)
 				push += Vector2.DOWN * push_vert * 0.15
-				print(push_vert)
+				#print(push_vert)
 			
 			if push != Vector2.ZERO:
 				arm.player.apply_central_impulse(push)
@@ -163,3 +172,9 @@ func add_chain(parent: Node2D, first: bool, count: int, chain_offset: Vector2, j
 	
 	if count > 1:
 		add_chain(body, false, count - 1, chain_offset, joint_list, body_list)
+
+
+func _on_body_entered(body):
+	Sounds.play(self, Enums.SoundType.Ouch)
+	if randf() < 0.2:
+		Sounds.play(self, Enums.SoundType.Voice)
