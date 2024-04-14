@@ -12,6 +12,7 @@
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 collision_layer = 2
+mass = 0.5
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_wydgr")
@@ -25,7 +26,7 @@ node_b = NodePath("LeftUpperLeg")
 [node name="LeftUpperLeg" type="RigidBody2D" parent="LeftLeg"]
 position = Vector2(0, 64)
 collision_layer = 2
-mass = 0.01
+mass = 0.25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg/LeftUpperLeg"]
 shape = SubResource("CircleShape2D_ycjfc")
@@ -61,7 +62,7 @@ node_b = NodePath("RightUpperLeg")
 [node name="RightUpperLeg" type="RigidBody2D" parent="RightLeg"]
 position = Vector2(0, 32)
 collision_layer = 2
-mass = 0.01
+mass = 0.25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg/RightUpperLeg"]
 shape = SubResource("CircleShape2D_ycjfc")

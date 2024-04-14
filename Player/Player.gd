@@ -105,10 +105,10 @@ func _process_arm(
 	var impulse: Vector2
 	
 	var target_pos: Vector2
-	arm.holding = false
+	#arm.holding = false
 	arm.hand.gravity_scale = 1.0
 	if Input.is_action_pressed(hold_action):
-		if (is_left && GlobalState.left_grip_count > 0) or (!is_left && GlobalState.right_grip_count > 0):
+		if arm.holding or (is_left && GlobalState.left_grip_count > 0) or (!is_left && GlobalState.right_grip_count > 0):
 			arm.holding = true
 			if arm.sliding:
 				arm.sliding = false
@@ -143,8 +143,10 @@ func _process_arm(
 			
 			
 		else:
+			arm.holding = false
 			arm.sliding = true
 	else:
+		arm.holding = false
 		arm.sliding = false
 	
 	if !arm.holding:
@@ -153,11 +155,19 @@ func _process_arm(
 		var offset = target_pos - arm.shoulder_joint.global_position
 		
 		#print(offset.length())
+			
 		offset = offset.limit_length(MAX_REACH)
 		target_pos = arm.shoulder_joint.global_position + offset
-
+		
+		var impulse_factor := 0.0
+		
 		if !arm.sliding:
-			impulse = (target_pos - arm.hand.global_position) * 10.0
+			impulse_factor = 10.0
+		elif arm.hand.global_position.y > global_position.y:
+			impulse_factor = 1.0
+
+		if impulse_factor > 0.0:
+			impulse = (target_pos - arm.hand.global_position) * impulse_factor
 			arm.hand.set_fixed_velocity(impulse)
 		else:
 			arm.hand.unset_fixed_velocity()

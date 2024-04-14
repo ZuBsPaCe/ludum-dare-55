@@ -83,7 +83,7 @@ size = Vector2(1500, 1500)
 radius = 2024.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0rl3"]
-size = Vector2(3000, 1000)
+size = Vector2(2265, 1122)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iahhj"]
 radius = 500.0
@@ -309,7 +309,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinScreenAreas/WinArea"]
-position = Vector2(-252, 300)
+position = Vector2(-301.5, 1092)
 shape = SubResource("RectangleShape2D_i0rl3")
 
 [node name="WinResetArea" type="Area2D" parent="WinScreenAreas"]
@@ -324,7 +324,7 @@ shape = SubResource("CircleShape2D_iahhj")
 modulate = Color(0.141176, 0.619608, 0.878431, 1)
 z_index = -4
 material = SubResource("ShaderMaterial_cebyn")
-position = Vector2(0, -6912)
+position = Vector2(-76, -6883)
 scale = Vector2(500, 500)
 texture = ExtResource("8_wedw8")
 

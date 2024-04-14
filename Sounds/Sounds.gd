@@ -5,6 +5,9 @@ var _last_time := {}
 
 var _loops := {}
 
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 func register_sounds(parent: Node):
 	for child in parent.get_children():
 		var soundType = child.Type
