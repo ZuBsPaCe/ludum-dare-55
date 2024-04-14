@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=74 format=3 uid="uid://b5j25hdsfu8hf"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_a8kk8"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
@@ -62,7 +62,9 @@
 [ext_resource type="AudioStream" uid="uid://b0741wtvvljlu" path="res://Music/Tricky/Tricky.mp3" id="45_bookt"]
 [ext_resource type="AudioStream" uid="uid://bjq5c0uk4180b" path="res://Music/Danger/Danger.mp3" id="46_4pyuy"]
 [ext_resource type="AudioStream" uid="uid://bx7m5spu5tus8" path="res://Music/Winner/Winner.mp3" id="47_13qci"]
+[ext_resource type="Texture2D" uid="uid://ddflxbxt465bf" path="res://Sign/Section7.png" id="58_wp6ms"]
 [ext_resource type="PackedScene" uid="uid://c0rh3hig4jpbg" path="res://Music/MusicArea.tscn" id="59_ojkkm"]
+[ext_resource type="Texture2D" uid="uid://bsftavpd04be6" path="res://Sign/Section6.png" id="59_vbdoo"]
 [ext_resource type="PackedScene" uid="uid://crvg4slixpc8f" path="res://WinScreen/WinScreen.tscn" id="64_2dpy1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75gl2"]
@@ -593,6 +595,17 @@ image = ExtResource("10_ijbet")
 position = Vector2(-2033, -7234)
 rotation = -0.904507
 image = ExtResource("11_5boyw")
+
+[node name="Sign7" parent="Signs" instance=ExtResource("7_wy4g8")]
+position = Vector2(-1532, -9240)
+rotation = -0.0147024
+image = ExtResource("58_wp6ms")
+
+[node name="Sign8" parent="Signs" instance=ExtResource("7_wy4g8")]
+position = Vector2(62.9999, -7136)
+rotation = -1.11806
+scale = Vector2(-1, 1)
+image = ExtResource("59_vbdoo")
 
 [node name="Sign5" parent="Signs" instance=ExtResource("7_wy4g8")]
 position = Vector2(2110, -9442)
