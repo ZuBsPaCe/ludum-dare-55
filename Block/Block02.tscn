@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlxrk0naj2w77"]
+
+[ext_resource type="Texture2D" uid="uid://b7n1kbkyd2oxq" path="res://Rock/RockSolid2.png" id="1_v0j51"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sm25"]
+size = Vector2(580, 120)
+
+[node name="Block 512x128" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_v0j51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6sm25")

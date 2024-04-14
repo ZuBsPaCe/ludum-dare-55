@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=19 format=3 uid="uid://b5j25hdsfu8hf"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_a8kk8"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
@@ -9,7 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://wbuopqhc15fd" path="res://Rock/Rock01.tscn" id="5_w354n"]
 [ext_resource type="PackedScene" uid="uid://tsrposeviyij" path="res://Block/Block01.tscn" id="6_585x6"]
 [ext_resource type="Shader" path="res://Background/Background.gdshader" id="7_l4ihk"]
+[ext_resource type="PackedScene" uid="uid://cr4nasddbixie" path="res://Sign/Sign.tscn" id="7_wy4g8"]
+[ext_resource type="Texture2D" uid="uid://crj0cs2labbup" path="res://Sign/Section1.png" id="8_g1uj3"]
 [ext_resource type="Texture2D" uid="uid://dwj25ljs8j43w" path="res://Background/white_32x32.png" id="8_wedw8"]
+[ext_resource type="Texture2D" uid="uid://1hnpv4sqvbdc" path="res://Sign/Section3.png" id="9_mefg0"]
+[ext_resource type="Texture2D" uid="uid://bui8smdnmbj82" path="res://Sign/Section2.png" id="10_ijbet"]
+[ext_resource type="Texture2D" uid="uid://b1p3qua8lbm27" path="res://Sign/Section4.png" id="11_5boyw"]
+[ext_resource type="Texture2D" uid="uid://44ymbhi0nb35" path="res://Sign/Section5.png" id="12_sfcp6"]
+[ext_resource type="PackedScene" uid="uid://dlxrk0naj2w77" path="res://Block/Block02.tscn" id="15_8jfae"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cebyn"]
 shader = ExtResource("7_l4ihk")
@@ -280,6 +287,41 @@ z_index = 0
 position = Vector2(674.502, -3164.26)
 rotation = -1.83259
 
+[node name="Signs" type="Node2D" parent="."]
+z_index = -3
+
+[node name="Sign" parent="Signs" instance=ExtResource("7_wy4g8")]
+position = Vector2(1525, -2536)
+rotation = 1.89242
+image = ExtResource("8_g1uj3")
+
+[node name="Sign2" parent="Signs" instance=ExtResource("7_wy4g8")]
+position = Vector2(-985, -1084)
+rotation = 1.46788
+scale = Vector2(-1, 1)
+image = ExtResource("9_mefg0")
+
+[node name="Sign3" parent="Signs" instance=ExtResource("7_wy4g8")]
+position = Vector2(-2082, -4513)
+rotation = -1.17271
+image = ExtResource("10_ijbet")
+
+[node name="Sign4" parent="Signs" instance=ExtResource("7_wy4g8")]
+position = Vector2(-2114, -6857)
+rotation = -1.51409
+image = ExtResource("11_5boyw")
+
+[node name="Sign5" parent="Signs" instance=ExtResource("7_wy4g8")]
+position = Vector2(2110, -9442)
+rotation = -0.514625
+image = ExtResource("12_sfcp6")
+
+[node name="Sign6" parent="Signs" instance=ExtResource("7_wy4g8")]
+position = Vector2(4735, -9447)
+rotation = -1.32764
+scale = Vector2(-1, 1)
+image = ExtResource("8_g1uj3")
+
 [node name="Player" parent="." instance=ExtResource("1_sk4w4")]
 position = Vector2(2304, -2240)
 rotation = -1.5708
@@ -443,11 +485,11 @@ position = Vector2(-926, -4854)
 rotation = -1.69839
 
 [node name="Block20" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(-1069, -5855)
-rotation = -1.74519
+position = Vector2(-1155, -5784)
+rotation = -1.96454
 
 [node name="Block21" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(-1124, -6546)
+position = Vector2(-1338, -6639)
 rotation = -1.58283
 
 [node name="Block22" parent="Blocks" instance=ExtResource("6_585x6")]
@@ -542,6 +584,10 @@ rotation = -2.48116
 position = Vector2(704, -2688)
 rotation = -0.261799
 
+[node name="Block 512x128" parent="Blocks" instance=ExtResource("15_8jfae")]
+position = Vector2(-1578, -4376)
+rotation = -0.000433394
+
 [node name="Grips" type="Node2D" parent="."]
 z_index = -1
 
@@ -569,19 +615,15 @@ rotation = 0.261799
 position = Vector2(-102, -3520)
 
 [node name="Grip24" parent="Grips" instance=ExtResource("4_7di1l")]
-position = Vector2(-1403, -4778)
+position = Vector2(-1439, -4935)
 rotation = -1.7301
 
 [node name="Grip28" parent="Grips" instance=ExtResource("4_7di1l")]
-position = Vector2(-1565, -5765)
-rotation = -1.7435
+position = Vector2(-1704, -5890)
+rotation = -1.91165
 
 [node name="Grip31" parent="Grips" instance=ExtResource("4_7di1l")]
-position = Vector2(-1381, -7538)
-rotation = -1.56647
-
-[node name="Grip33" parent="Grips" instance=ExtResource("4_7di1l")]
-position = Vector2(-1381, -7538)
+position = Vector2(-1517, -7546)
 rotation = -1.56647
 
 [node name="Grip34" parent="Grips" instance=ExtResource("4_7di1l")]
@@ -593,7 +635,7 @@ position = Vector2(846, -8472)
 rotation = -1.57666
 
 [node name="Grip32" parent="Grips" instance=ExtResource("4_7di1l")]
-position = Vector2(-1377, -8494)
+position = Vector2(-1513, -8502)
 rotation = -1.56647
 
 [node name="Grip22" parent="Grips" instance=ExtResource("4_7di1l")]
@@ -618,10 +660,6 @@ rotation = 0.261799
 
 [node name="Grip08" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(512, -896)
-
-[node name="Grip09" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(-896, -1024)
-rotation = 0.261799
 
 [node name="Grip11" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(448, -256)
@@ -662,10 +700,6 @@ rotation = 0.261799
 [node name="Grip23" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(-1685, -4248)
 
-[node name="Grip30" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(-1833, -6682)
-rotation = -0.0242369
-
 [node name="Grip36" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(1184, -5847)
 rotation = -0.696893
@@ -678,13 +712,5 @@ rotation = -1.42036
 position = Vector2(2358, -2713)
 rotation = -0.523598
 
-[node name="Grip29" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1598, -2813)
-rotation = 0.523598
-
 [node name="Grip20" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(1088, -1984)
-
-[node name="Grip21" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1310, -2502)
-rotation = 0.523598
