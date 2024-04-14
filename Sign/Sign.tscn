@@ -16,6 +16,7 @@ script = ExtResource("2_k2coa")
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("3_bsbkk")
+particles = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-162, -120, 113, -120, 213, -20, 213, 5, 113, 105, -162, 105)

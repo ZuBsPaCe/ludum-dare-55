@@ -1,12 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://c43fso3cy3cmi"]
+[gd_scene load_steps=10 format=3 uid="uid://c43fso3cy3cmi"]
 
 [ext_resource type="Script" path="res://Chain/Chain.gd" id="1_pjiww"]
 [ext_resource type="Script" path="res://Chain/ChainBody.gd" id="2_7i2jm"]
 [ext_resource type="Texture2D" uid="uid://dgqtd80iod7ls" path="res://Robot/Leg.png" id="3_0rafp"]
 [ext_resource type="Texture2D" uid="uid://bx84xfre02h6s" path="res://Robot/Hand.png" id="4_66fxf"]
 [ext_resource type="Texture2D" uid="uid://cdlf0niwoa306" path="res://Robot/HandClosed.png" id="5_p1bfk"]
+[ext_resource type="Texture2D" uid="uid://c7i2vfbyoilfu" path="res://Particles/Particle01.png" id="6_4nqb5"]
+[ext_resource type="Texture2D" uid="uid://b3mqb0kynbpco" path="res://Particles/SlideParticle01.png" id="7_k3blb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hktte"]
+
+[sub_resource type="Gradient" id="Gradient_vh18m"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Chain" type="PinJoint2D"]
 node_a = NodePath("..")
@@ -47,3 +52,46 @@ self_modulate = Color(0.756, 0.9, 0.8688, 1)
 position = Vector2(-1, -10)
 scale = Vector2(1.8, 2)
 texture = ExtResource("5_p1bfk")
+
+[node name="Particles" type="CPUParticles2D" parent="ChainBody"]
+unique_name_in_owner = true
+z_index = -1
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.68
+texture = ExtResource("6_4nqb5")
+emission_shape = 1
+emission_sphere_radius = 20.83
+spread = 180.0
+gravity = Vector2(0, 1960)
+initial_velocity_min = 116.96
+initial_velocity_max = 210.52
+angular_velocity_min = -290.52
+angular_velocity_max = 315.79
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.1
+color_ramp = SubResource("Gradient_vh18m")
+
+[node name="SlideParticles" type="CPUParticles2D" parent="ChainBody"]
+unique_name_in_owner = true
+z_index = -1
+emitting = false
+amount = 12
+lifetime = 2.0
+explosiveness = 0.15
+texture = ExtResource("7_k3blb")
+emission_shape = 1
+emission_sphere_radius = 20.83
+spread = 180.0
+gravity = Vector2(0, 1960)
+initial_velocity_min = 116.96
+initial_velocity_max = 210.52
+angular_velocity_min = -290.52
+angular_velocity_max = 315.79
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.1
+color_ramp = SubResource("Gradient_vh18m")

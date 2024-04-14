@@ -6,10 +6,15 @@ var _fixed_position
 
 var hand:Sprite2D 
 var hand_closed:Sprite2D
+var _particles: CPUParticles2D
+var _slide_particles: CPUParticles2D
 
 func _ready():
 	hand = get_node("%Hand")
 	hand_closed = get_node("%HandClosed")
+	_particles = get_node("%Particles")
+	_slide_particles = get_node("%SlideParticles")
+	_slide_particles.emitting = false
 
 #func set_fixed_velocity(velocity: Vector2):
 	#_fixed_velocity = velocity
@@ -52,3 +57,13 @@ func open_hand():
 func close_hand():
 	hand.visible = false
 	hand_closed.visible = true
+
+
+func burst_particles():
+	_particles.emitting = true
+	
+func start_slide_particles():
+	_slide_particles.emitting = true
+	
+func stop_slide_particles():
+	_slide_particles.emitting = false

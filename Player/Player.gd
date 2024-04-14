@@ -89,6 +89,8 @@ func _process_arm(
 		hold_action: String,
 		is_left: bool):
 	
+	var was_sliding := arm.sliding
+	
 	if Input.is_action_just_pressed(hold_action):
 		arm.sliding = true
 		arm.hand.close_hand()
@@ -114,6 +116,11 @@ func _process_arm(
 				arm.sliding = false
 				arm.hold_pos = arm.hand.global_position
 				Sounds.play(self, Enums.SoundType.Grip)
+				
+				if is_left and GlobalState.left_grip_particles:
+					arm.hand.burst_particles()
+				elif !is_left and GlobalState.right_grip_particles:
+					arm.hand.burst_particles()
 		
 			target_pos = arm.hold_pos
 			impulse = (target_pos - arm.hand.global_position) * 50.0 
@@ -172,7 +179,10 @@ func _process_arm(
 		else:
 			arm.hand.unset_fixed_velocity()
 
-		
+	if !was_sliding && arm.sliding:
+		arm.hand.start_slide_particles()
+	elif was_sliding && !arm.sliding:
+		arm.hand.stop_slide_particles()
 
 func add_chain(parent: Node2D, first: bool, count: int, chain_offset: Vector2, joint_list: Array, body_list: Array):
 	var chain:Node2D = chain_scene.instantiate()
