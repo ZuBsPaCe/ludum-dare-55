@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpv8fykrjhvwf"]
+
+[ext_resource type="Texture2D" uid="uid://b5tj1a2re8hep" path="res://Rock/RockSolidRound.png" id="1_tci1n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v01gy"]
+radius = 601.06
+
+[node name="RoundBlock 1000x1000" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_tci1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v01gy")

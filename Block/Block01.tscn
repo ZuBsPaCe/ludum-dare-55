@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://tsrposeviyij"]
 
-[ext_resource type="Texture2D" uid="uid://bjxfbeogtk8nc" path="res://Rock/RockSolid1.png" id="1_e6ilc"]
+[ext_resource type="Texture2D" uid="uid://cujtdf1cfgp32" path="res://Rock/RockSolid1_Rework.png" id="1_2pvnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxcyr"]
 size = Vector2(1000, 1000)
@@ -9,7 +9,7 @@ size = Vector2(1000, 1000)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("1_e6ilc")
+texture = ExtResource("1_2pvnu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pxcyr")

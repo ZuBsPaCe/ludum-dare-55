@@ -44,6 +44,7 @@ func _on_timer_timeout() -> void:
 		add_child(_player)
 		_player.play()
 		_queued_music_type = null
+		wait_time = 1.0
 	else:
 		wait_time = 1.0
 	
