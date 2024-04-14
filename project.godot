@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ludum-dare-55"
+config/name="RoboClimb"
 run/main_scene="res://Scenes/Game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
