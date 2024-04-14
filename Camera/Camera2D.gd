@@ -38,7 +38,7 @@ func _process(delta):
 	#-4000 to -12000
 	
 	const min_wind := 3000.0
-	const max_wind := 8000.0
+	const max_wind := 4000.0
 	
 	var global_y = -global_position.y
 	var height = (global_y - min_wind) / (max_wind - min_wind)

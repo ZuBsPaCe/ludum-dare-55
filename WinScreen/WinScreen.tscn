@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://crvg4slixpc8f"]
+
+[ext_resource type="Script" path="res://WinScreen/WinScreen.gd" id="1_dcmwh"]
+[ext_resource type="Theme" uid="uid://cioe6r2f62pf6" path="res://WinScreen/Theme.tres" id="1_q0ysa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6p1a"]
+bg_color = Color(0.211765, 0.529412, 0.364706, 0.760784)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
+[node name="WinScreen" type="CanvasLayer"]
+script = ExtResource("1_dcmwh")
+
+[node name="WinScreenContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q0ysa")
+
+[node name="PanelContainer" type="PanelContainer" parent="WinScreenContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i6p1a")
+
+[node name="Screen1" type="VBoxContainer" parent="WinScreenContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="WinScreenContainer/Screen1"]
+custom_minimum_size = Vector2(1520, 405)
+layout_mode = 2
+text = "The robot finally made it to the top! Everything looked familiar. Was it here before?
+
+The robot could not remember. Its RAM and disk drive fell off a long time ago. But the cave in the mountain looked interesting. Maybe take a look?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button1" type="Button" parent="WinScreenContainer/Screen1"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Show Stats"
+
+[node name="Screen2" type="VBoxContainer" parent="WinScreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="StatLabel" type="Label" parent="WinScreenContainer/Screen2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1520, 133)
+layout_mode = 2
+text = "It took you RESULT
+to reach the top!
+
+Good job and thanks for playing!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="WinScreenContainer/Screen2"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[connection signal="pressed" from="WinScreenContainer/Screen1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="WinScreenContainer/Screen2/Button2" to="." method="_on_button_2_pressed"]

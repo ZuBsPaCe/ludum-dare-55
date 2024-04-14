@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cioe6r2f62pf6"]
+
+[ext_resource type="FontFile" uid="uid://d315wvor36n48" path="res://Fonts/Cat Comic.ttf" id="1_75n3j"]
+
+[resource]
+default_font = ExtResource("1_75n3j")
+default_font_size = 64
+MarginContainer/constants/margin_bottom = 100
+MarginContainer/constants/margin_left = 200
+MarginContainer/constants/margin_right = 200
+MarginContainer/constants/margin_top = 100

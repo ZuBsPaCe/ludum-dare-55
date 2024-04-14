@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=72 format=3 uid="uid://b5j25hdsfu8hf"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_a8kk8"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
@@ -63,6 +63,7 @@
 [ext_resource type="AudioStream" uid="uid://bjq5c0uk4180b" path="res://Music/Danger/Danger.mp3" id="46_4pyuy"]
 [ext_resource type="AudioStream" uid="uid://bx7m5spu5tus8" path="res://Music/Winner/Winner.mp3" id="47_13qci"]
 [ext_resource type="PackedScene" uid="uid://c0rh3hig4jpbg" path="res://Music/MusicArea.tscn" id="59_ojkkm"]
+[ext_resource type="PackedScene" uid="uid://crvg4slixpc8f" path="res://WinScreen/WinScreen.tscn" id="64_2dpy1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75gl2"]
 radius = 1024.0
@@ -75,6 +76,12 @@ size = Vector2(1500, 1500)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4o7kk"]
 radius = 2024.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0rl3"]
+size = Vector2(3000, 1000)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iahhj"]
+radius = 500.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cebyn"]
 shader = ExtResource("7_l4ihk")
@@ -285,6 +292,25 @@ music_type = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicAreas/MusicArea4"]
 position = Vector2(1051, -136)
 shape = SubResource("CircleShape2D_4o7kk")
+
+[node name="WinScreenAreas" type="Node2D" parent="."]
+
+[node name="WinArea" type="Area2D" parent="WinScreenAreas"]
+position = Vector2(4262, -9761)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinScreenAreas/WinArea"]
+position = Vector2(-252, 300)
+shape = SubResource("RectangleShape2D_i0rl3")
+
+[node name="WinResetArea" type="Area2D" parent="WinScreenAreas"]
+position = Vector2(3620, -5989)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinScreenAreas/WinResetArea"]
+shape = SubResource("CircleShape2D_iahhj")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.141176, 0.619608, 0.878431, 1)
@@ -733,6 +759,10 @@ rotation = -1.0472
 position = Vector2(64, -4736)
 rotation = -1.52402
 
+[node name="Block65" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-420, -5068)
+rotation = 0.530956
+
 [node name="Block18" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(-509, -4755)
 rotation = -1.52665
@@ -962,8 +992,8 @@ position = Vector2(1184, -5847)
 rotation = -0.696893
 
 [node name="Grip37" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(627, -6067)
-rotation = -1.42036
+position = Vector2(330, -5956)
+rotation = -1.07523
 
 [node name="Grip38" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(-2065, -6218)
@@ -975,3 +1005,10 @@ rotation = -0.523598
 
 [node name="Grip20" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(1088, -1984)
+
+[node name="WinScreen" parent="." instance=ExtResource("64_2dpy1")]
+unique_name_in_owner = true
+process_mode = 3
+
+[connection signal="body_entered" from="WinScreenAreas/WinArea" to="." method="_on_win_area_body_entered"]
+[connection signal="body_entered" from="WinScreenAreas/WinResetArea" to="." method="_on_win_reset_area_body_entered"]
