@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=77 format=3 uid="uid://b5j25hdsfu8hf"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_a8kk8"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
@@ -68,6 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://bsftavpd04be6" path="res://Sign/Section6.png" id="59_vbdoo"]
 [ext_resource type="PackedScene" uid="uid://crvg4slixpc8f" path="res://WinScreen/WinScreen.tscn" id="64_2dpy1"]
 [ext_resource type="PackedScene" uid="uid://dpv8fykrjhvwf" path="res://Block/Block03.tscn" id="64_jba7r"]
+[ext_resource type="Texture2D" uid="uid://c0csvcqo3q2rt" path="res://Vignette/Vignette.png" id="68_qb7f6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75gl2"]
 radius = 1024.0
@@ -808,8 +809,8 @@ scale = Vector2(-1, 1)
 image = ExtResource("59_vbdoo")
 
 [node name="Sign5" parent="Signs" instance=ExtResource("7_wy4g8")]
-position = Vector2(2178, -9431)
-rotation = -0.514625
+position = Vector2(2224, -9431)
+rotation = -0.30093
 image = ExtResource("12_sfcp6")
 
 [node name="Sign6" parent="Signs" instance=ExtResource("7_wy4g8")]
@@ -1020,13 +1021,13 @@ rotation = -1.59122
 position = Vector2(2693, -7430)
 rotation = -1.57078
 
-[node name="Block25" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(2621, -8431)
-rotation = -1.57078
-
 [node name="Block26" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(2702, -8651)
 rotation = 0.139846
+
+[node name="Block43" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2819, -8281)
+rotation = -0.159628
 
 [node name="Block27" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(3097, -8392)
@@ -1222,6 +1223,18 @@ rotation = -0.523598
 [node name="Grip20" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(1054, -2086)
 rotation = 0.0237491
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.501961)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("68_qb7f6")
 
 [node name="WinScreen" parent="." instance=ExtResource("64_2dpy1")]
 unique_name_in_owner = true
