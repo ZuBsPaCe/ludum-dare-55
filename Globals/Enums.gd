@@ -6,3 +6,10 @@ enum SoundType {
 	Slide,
 	Voice
 }
+
+enum MusicType {
+	Cave,
+	Tricky,
+	Danger,
+	Winner
+}

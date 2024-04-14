@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Sliding02.mp3-bd9a724166c21133d443553b4a44082
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

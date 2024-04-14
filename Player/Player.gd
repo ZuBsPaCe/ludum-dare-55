@@ -126,10 +126,16 @@ func _process_arm(
 			push_side = clampf(push_side, -100, 100)
 			push += Vector2.RIGHT * push_side * 0.05
 			
+			var push_vert_factor := 0.0;
 			if left_arm.holding and right_arm.holding:
+				push_vert_factor = 0.15
+			elif left_arm.holding or right_arm.holding:
+				push_vert_factor = 0.05
+				
+			if push_vert_factor > 0.0:
 				var push_vert := Input.get_last_mouse_velocity().y
 				push_vert = clampf(push_vert, -100, 100)
-				push += Vector2.DOWN * push_vert * 0.15
+				push += Vector2.DOWN * push_vert * push_vert_factor
 				#print(push_vert)
 			
 			if push != Vector2.ZERO:

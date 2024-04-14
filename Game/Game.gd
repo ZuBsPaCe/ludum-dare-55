@@ -6,6 +6,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	Sounds.register_sounds(get_node("%Sounds"))
+	Music.register_music(get_node("%Music"))
 	
 
 func _process(delta):

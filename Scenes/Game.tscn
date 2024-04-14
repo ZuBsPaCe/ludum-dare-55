@@ -1,8 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=69 format=3 uid="uid://b5j25hdsfu8hf"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_a8kk8"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
 [ext_resource type="PackedScene" uid="uid://7xhhshn0ev2o" path="res://Player/Player.tscn" id="1_sk4w4"]
+[ext_resource type="AudioStream" uid="uid://dl2einpjf4jmn" path="res://Music/Wind/Wind.mp3" id="3_0qgns"]
 [ext_resource type="PackedScene" uid="uid://v5u63dd0ir48" path="res://Sounds/SoundItem.tscn" id="3_hurs7"]
 [ext_resource type="PackedScene" uid="uid://dq53t6yx02tkv" path="res://Grips/Grip02.tscn" id="4_7di1l"]
 [ext_resource type="PackedScene" uid="uid://bwa28rh3t15jm" path="res://Grips/Grip01.tscn" id="4_f673y"]
@@ -56,6 +57,24 @@
 [ext_resource type="AudioStream" uid="uid://cty2wvfsl5v2d" path="res://Sounds/Grip/Grip10.mp3" id="39_ebxoo"]
 [ext_resource type="AudioStream" uid="uid://dmsmdki2l3mca" path="res://Sounds/Sliding/Sliding02.mp3" id="40_fw4cd"]
 [ext_resource type="AudioStream" uid="uid://c81yuw3o86ybe" path="res://Sounds/Sliding/Sliding01.mp3" id="40_ofyqj"]
+[ext_resource type="PackedScene" uid="uid://bq202m0up606k" path="res://Music/MusicItem.tscn" id="42_l58pb"]
+[ext_resource type="AudioStream" uid="uid://csn663h7ly65b" path="res://Music/Cave/Cave/Cave.mp3" id="43_l33r6"]
+[ext_resource type="AudioStream" uid="uid://b0741wtvvljlu" path="res://Music/Tricky/Tricky.mp3" id="45_bookt"]
+[ext_resource type="AudioStream" uid="uid://bjq5c0uk4180b" path="res://Music/Danger/Danger.mp3" id="46_4pyuy"]
+[ext_resource type="AudioStream" uid="uid://bx7m5spu5tus8" path="res://Music/Winner/Winner.mp3" id="47_13qci"]
+[ext_resource type="PackedScene" uid="uid://c0rh3hig4jpbg" path="res://Music/MusicArea.tscn" id="59_ojkkm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75gl2"]
+radius = 1024.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7ek"]
+size = Vector2(3000, 5000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fddxt"]
+size = Vector2(1500, 1500)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4o7kk"]
+radius = 2024.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cebyn"]
 shader = ExtResource("7_l4ihk")
@@ -67,6 +86,12 @@ script = ExtResource("1_a8kk8")
 position = Vector2(2432, -2304)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("1_mlqjk")
+
+[node name="WindPlayer" type="AudioStreamPlayer" parent="Camera2D"]
+stream = ExtResource("3_0qgns")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
 
 [node name="Sounds" type="Node" parent="."]
 unique_name_in_owner = true
@@ -208,6 +233,58 @@ DB = -15.0
 [node name="SoundItem38" parent="Sounds" instance=ExtResource("3_hurs7")]
 Type = 2
 Stream = ExtResource("40_fw4cd")
+
+[node name="Music" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="MusicItem" parent="Music" instance=ExtResource("42_l58pb")]
+Type = 0
+Stream = ExtResource("43_l33r6")
+
+[node name="MusicItem2" parent="Music" instance=ExtResource("42_l58pb")]
+Type = 1
+Stream = ExtResource("45_bookt")
+
+[node name="MusicItem3" parent="Music" instance=ExtResource("42_l58pb")]
+Type = 2
+Stream = ExtResource("46_4pyuy")
+
+[node name="MusicItem4" parent="Music" instance=ExtResource("42_l58pb")]
+Type = 3
+Stream = ExtResource("47_13qci")
+
+[node name="MusicAreas" type="Node2D" parent="."]
+
+[node name="MusicArea" parent="MusicAreas" instance=ExtResource("59_ojkkm")]
+position = Vector2(2128, -2848)
+music_type = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicAreas/MusicArea"]
+shape = SubResource("CircleShape2D_75gl2")
+
+[node name="MusicArea2" parent="MusicAreas" instance=ExtResource("59_ojkkm")]
+position = Vector2(-483, -1890)
+rotation = -0.451402
+music_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicAreas/MusicArea2"]
+shape = SubResource("RectangleShape2D_7e7ek")
+
+[node name="MusicArea3" parent="MusicAreas" instance=ExtResource("59_ojkkm")]
+position = Vector2(-2381, -5712)
+music_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicAreas/MusicArea3"]
+position = Vector2(84, -670)
+shape = SubResource("RectangleShape2D_fddxt")
+
+[node name="MusicArea4" parent="MusicAreas" instance=ExtResource("59_ojkkm")]
+position = Vector2(3093, -9866)
+music_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicAreas/MusicArea4"]
+position = Vector2(1051, -136)
+shape = SubResource("CircleShape2D_4o7kk")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.141176, 0.619608, 0.878431, 1)
@@ -487,8 +564,8 @@ rotation = -1.17271
 image = ExtResource("10_ijbet")
 
 [node name="Sign4" parent="Signs" instance=ExtResource("7_wy4g8")]
-position = Vector2(-2114, -6857)
-rotation = -1.51409
+position = Vector2(-2033, -7234)
+rotation = -0.904507
 image = ExtResource("11_5boyw")
 
 [node name="Sign5" parent="Signs" instance=ExtResource("7_wy4g8")]
@@ -504,7 +581,7 @@ image = ExtResource("8_g1uj3")
 
 [node name="Player" parent="." instance=ExtResource("1_sk4w4")]
 position = Vector2(2304, -2240)
-rotation = -1.5708
+rotation = -1.64364
 
 [node name="Blocks" type="Node2D" parent="."]
 z_index = -2
@@ -634,7 +711,7 @@ rotation = -1.5626
 
 [node name="Block10" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(2368, -1664)
-rotation = -1.57079
+rotation = -1.65215
 
 [node name="Block13" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(3053, -2200)
@@ -701,8 +778,8 @@ position = Vector2(2702, -8651)
 rotation = 0.139846
 
 [node name="Block27" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(3556, -8570)
-rotation = -0.00995889
+position = Vector2(3183, -8349)
+rotation = 1.01819
 
 [node name="Block31" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(5235, -8592)
@@ -799,8 +876,8 @@ position = Vector2(-1439, -4935)
 rotation = -1.7301
 
 [node name="Grip28" parent="Grips" instance=ExtResource("4_7di1l")]
-position = Vector2(-1704, -5890)
-rotation = -1.91165
+position = Vector2(-1678, -5800)
+rotation = -1.94104
 
 [node name="Grip31" parent="Grips" instance=ExtResource("4_7di1l")]
 position = Vector2(-1517, -7546)
@@ -887,6 +964,10 @@ rotation = -0.696893
 [node name="Grip37" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(627, -6067)
 rotation = -1.42036
+
+[node name="Grip38" parent="Grips" instance=ExtResource("4_f673y")]
+position = Vector2(-2065, -6218)
+rotation = -0.0206199
 
 [node name="Grip26" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(2358, -2713)

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c8vscplardxi2" path="res://Robot/Head.png" id="4_ddg61"]
 [ext_resource type="Texture2D" uid="uid://cqhvqklrq42c8" path="res://Robot/Eye.png" id="5_y3r5n"]
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["Player"]]
 collision_layer = 2
 max_contacts_reported = 1
 contact_monitor = true
