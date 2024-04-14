@@ -13,6 +13,8 @@ config_version=5
 config/name="RoboClimb"
 run/main_scene="res://Scenes/Game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://Splash/zubspace_banner.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -26,6 +28,7 @@ Music="*res://Music/Music.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
