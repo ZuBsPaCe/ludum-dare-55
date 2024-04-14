@@ -32,17 +32,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_i6p1a")
 
 [node name="Screen1" type="VBoxContainer" parent="WinScreenContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 100
 
 [node name="Label" type="Label" parent="WinScreenContainer/Screen1"]
-custom_minimum_size = Vector2(1520, 405)
+custom_minimum_size = Vector2(1200, 405)
 layout_mode = 2
-text = "The robot finally made it to the top! Everything looked familiar. Was it here before?
+size_flags_horizontal = 4
+text = "The robot finally made it to the top! The place feels familiar. Was it here before?
 
-The robot could not remember. Its RAM and disk drive fell off a long time ago. But the cave in the mountain looked interesting. Maybe take a look?"
+The robot could not remember. Its RAM and disk drive fell off a long time ago.
+
+Hey, there's a cave in the mountain! Maybe take a look?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -54,6 +56,7 @@ text = "Show Stats"
 
 [node name="Screen2" type="VBoxContainer" parent="WinScreenContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 100
