@@ -39,6 +39,8 @@ func _on_timer_timeout() -> void:
 		_player.stream = music_item.Stream
 		_player.volume_db = music_item.DB
 		_player.bus = "Music"
+		_player.process_mode = Node.PROCESS_MODE_ALWAYS
+		
 		add_child(_player)
 		_player.play()
 		_queued_music_type = null
