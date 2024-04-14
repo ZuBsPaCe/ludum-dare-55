@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5j25hdsfu8hf"]
+[gd_scene load_steps=12 format=3 uid="uid://b5j25hdsfu8hf"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_a8kk8"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_mlqjk"]
 [ext_resource type="PackedScene" uid="uid://7xhhshn0ev2o" path="res://Player/Player.tscn" id="1_sk4w4"]
 [ext_resource type="PackedScene" uid="uid://dq53t6yx02tkv" path="res://Grips/Grip02.tscn" id="4_7di1l"]
 [ext_resource type="PackedScene" uid="uid://bwa28rh3t15jm" path="res://Grips/Grip01.tscn" id="4_f673y"]
+[ext_resource type="PackedScene" uid="uid://36n5orlwyadx" path="res://Rock/RockFill.tscn" id="5_2ysuq"]
 [ext_resource type="PackedScene" uid="uid://wbuopqhc15fd" path="res://Rock/Rock01.tscn" id="5_w354n"]
 [ext_resource type="PackedScene" uid="uid://tsrposeviyij" path="res://Block/Block01.tscn" id="6_585x6"]
 [ext_resource type="Shader" path="res://Background/Background.gdshader" id="7_l4ihk"]
@@ -26,14 +27,149 @@ modulate = Color(0.141176, 0.619608, 0.878431, 1)
 z_index = -4
 material = SubResource("ShaderMaterial_cebyn")
 position = Vector2(0, -6912)
-scale = Vector2(200, 500)
+scale = Vector2(500, 500)
 texture = ExtResource("8_wedw8")
+
+[node name="RockFills" type="Node2D" parent="."]
+z_index = -3
+position = Vector2(0, -6912)
+
+[node name="RockFill" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(6914, -7112)
+
+[node name="RockFill2" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(6914, -5226)
+
+[node name="RockFill3" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(6878, -3268)
+
+[node name="RockFill4" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(6249, -1472)
+
+[node name="RockFill5" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(7919, -1382)
+
+[node name="RockFill6" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(5782, 306)
+
+[node name="RockFill7" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(7596, 432)
+
+[node name="RockFill8" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(5603, 2012)
+
+[node name="RockFill9" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(7291, 2335)
+
+[node name="RockFill10" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(5244, 3772)
+
+[node name="RockFill11" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(7130, 3916)
+
+[node name="RockFill12" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(4526, 4904)
+
+[node name="RockFill13" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(6070, 5478)
+
+[node name="RockFill14" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(3645, 6017)
+
+[node name="RockFill15" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(5495, 6771)
+
+[node name="RockFill16" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(3088, 6771)
+
+[node name="RockFill17" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(1148, 8441)
+
+[node name="RockFill18" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(2908, 8261)
+
+[node name="RockFill19" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(4381, 7884)
+
+[node name="RockFill20" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-648, 8602)
+
+[node name="RockFill23" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-3055, 6591)
+
+[node name="RockFill24" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-4115, 7794)
+
+[node name="RockFill25" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-4923, 5980)
+
+[node name="RockFill26" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-3648, 4956)
+
+[node name="RockFill27" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-4690, 4094)
+
+[node name="RockFill28" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-6037, 3106)
+
+[node name="RockFill29" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-6558, 4884)
+
+[node name="RockFill30" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-7833, 3088)
+
+[node name="RockFill31" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-6791, 2208)
+
+[node name="RockFill32" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-7779, 1238)
+
+[node name="RockFill33" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-7905, -648)
+
+[node name="RockFill34" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-8103, -2641)
+
+[node name="RockFill35" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-8121, -4545)
+
+[node name="RockFill36" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-8121, -6413)
+
+[node name="RockFill37" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-8157, -7006)
+
+[node name="RockFill38" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-5885, 6658)
+
+[node name="RockFill39" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(5667, 7586)
+
+[node name="RockFill40" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(7299, 6274)
+
+[node name="RockFill41" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(7715, 5154)
+
+[node name="RockFill42" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(8707, -3006)
+
+[node name="RockFill43" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(8707, -4926)
+
+[node name="RockFill44" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(8675, -6974)
+
+[node name="RockFill21" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-2282, 7920)
+
+[node name="RockFill22" parent="RockFills" instance=ExtResource("5_2ysuq")]
+position = Vector2(-2282, 7920)
 
 [node name="Rocks" type="Node2D" parent="."]
 z_index = -3
 position = Vector2(-256, -256)
 rotation = 0.590218
-scale = Vector2(1, 1)
 skew = 0.0426812
 
 [node name="Rock01" parent="Rocks" instance=ExtResource("5_w354n")]
@@ -152,12 +288,16 @@ rotation = -1.5708
 z_index = -2
 
 [node name="Block01" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(-256, 576)
-rotation = 0.0382358
+position = Vector2(-171, 549)
+rotation = -0.0878542
 
 [node name="Block02" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(698, 538)
-rotation = -0.121304
+position = Vector2(681, 399)
+rotation = -0.216264
+
+[node name="Block44" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(1426, 237)
+rotation = -0.216264
 
 [node name="Block03" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(1581, 163)
@@ -190,13 +330,97 @@ rotation = 1.46608
 position = Vector2(-2496, -2432)
 rotation = 1.0472
 
+[node name="Block45" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-2982, -3065)
+rotation = 0.680564
+
+[node name="Block46" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-3729, -3608)
+rotation = 0.560332
+
+[node name="Block47" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-4589, -4174)
+rotation = 0.560332
+
+[node name="Block48" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-5404, -4819)
+rotation = 0.748547
+
+[node name="Block49" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6117, -5724)
+rotation = 1.12736
+
+[node name="Block50" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6456, -6640)
+rotation = 1.35361
+
+[node name="Block51" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6637, -7636)
+rotation = 1.48058
+
+[node name="Block52" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6659, -8654)
+rotation = 1.55047
+
+[node name="Block53" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6704, -9638)
+rotation = 1.55047
+
+[node name="Block54" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6704, -10600)
+rotation = 1.55047
+
+[node name="Block55" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6715, -11528)
+rotation = 1.55047
+
+[node name="Block56" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6704, -12490)
+rotation = 1.55047
+
+[node name="Block57" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6704, -13440)
+rotation = 1.55047
+
+[node name="Block58" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-6704, -14413)
+rotation = 1.55047
+
+[node name="Block59" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(5447, -9593)
+rotation = -1.5626
+
+[node name="Block60" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(5458, -10611)
+rotation = -1.5626
+
+[node name="Block61" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(5447, -11584)
+rotation = -1.5626
+
+[node name="Block62" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(5470, -12557)
+rotation = -1.5626
+
+[node name="Block63" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(5481, -13564)
+rotation = -1.5626
+
+[node name="Block64" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(5481, -14537)
+rotation = -1.5626
+
 [node name="Block10" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(2368, -1664)
 rotation = -1.57079
 
 [node name="Block13" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(3008, -2240)
+position = Vector2(3053, -2200)
 rotation = -1.57079
+
+[node name="Block30" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(3277, -2693)
+rotation = -0.785157
 
 [node name="Block14" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(1024, -3136)
@@ -206,9 +430,113 @@ rotation = -0.785397
 position = Vector2(1664, -3923)
 rotation = -1.0472
 
+[node name="Block17" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(64, -4736)
+rotation = -1.52402
+
+[node name="Block18" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-509, -4755)
+rotation = -1.52665
+
+[node name="Block19" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-926, -4854)
+rotation = -1.69839
+
+[node name="Block20" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-1069, -5855)
+rotation = -1.74519
+
+[node name="Block21" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(-1124, -6546)
+rotation = -1.58283
+
+[node name="Block22" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(749, -6523)
+rotation = 0.0852852
+
+[node name="Block23" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(1768, -6464)
+rotation = -0.00746446
+
+[node name="Block28" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(1903, -5724)
+rotation = -1.71598
+
+[node name="Block29" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2006, -4871)
+rotation = -1.59122
+
+[node name="Block24" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2693, -7430)
+rotation = -1.57078
+
+[node name="Block25" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2621, -8431)
+rotation = -1.57078
+
+[node name="Block26" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2702, -8651)
+rotation = 0.139846
+
+[node name="Block27" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(3556, -8570)
+rotation = -0.00995889
+
+[node name="Block31" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(5235, -8592)
+rotation = -1.57673
+
+[node name="Block32" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(4960, -7534)
+rotation = -0.990217
+
+[node name="Block38" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(3394, -7857)
+rotation = 2.10538
+
+[node name="Block39" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2994, -6910)
+rotation = 1.78296
+
+[node name="Block40" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2846, -5963)
+rotation = 1.62883
+
+[node name="Block41" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2878, -5406)
+rotation = 1.17837
+
+[node name="Block42" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2869, -4872)
+rotation = 1.69358
+
+[node name="Block43" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(2667, -4234)
+rotation = 2.02573
+
+[node name="Block33" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(4574, -6747)
+rotation = -1.21045
+
+[node name="Block34" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(4395, -5997)
+rotation = -1.58192
+
+[node name="Block35" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(4502, -5336)
+rotation = -1.93177
+
+[node name="Block36" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(4358, -4246)
+rotation = -1.13304
+
+[node name="Block37" parent="Blocks" instance=ExtResource("6_585x6")]
+position = Vector2(3852, -3384)
+rotation = -1.00677
+
 [node name="Block16" parent="Blocks" instance=ExtResource("6_585x6")]
-position = Vector2(2560, -3392)
-rotation = -2.35619
+position = Vector2(2247, -3620)
+rotation = -2.48116
 
 [node name="Block11" parent="Blocks" instance=ExtResource("6_585x6")]
 position = Vector2(704, -2688)
@@ -240,9 +568,41 @@ rotation = 0.261799
 [node name="Grip19" parent="Grips" instance=ExtResource("4_7di1l")]
 position = Vector2(-102, -3520)
 
+[node name="Grip24" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(-1403, -4778)
+rotation = -1.7301
+
+[node name="Grip28" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(-1565, -5765)
+rotation = -1.7435
+
+[node name="Grip31" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(-1381, -7538)
+rotation = -1.56647
+
+[node name="Grip33" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(-1381, -7538)
+rotation = -1.56647
+
+[node name="Grip34" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(815, -7520)
+rotation = -1.50762
+
+[node name="Grip35" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(846, -8472)
+rotation = -1.57666
+
+[node name="Grip32" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(-1377, -8494)
+rotation = -1.56647
+
 [node name="Grip22" parent="Grips" instance=ExtResource("4_7di1l")]
-position = Vector2(-704, -4416)
-rotation = -1.309
+position = Vector2(0, -4160)
+rotation = 0.0533022
+
+[node name="Grip27" parent="Grips" instance=ExtResource("4_7di1l")]
+position = Vector2(-1024, -4224)
+rotation = 0.0533022
 
 [node name="Grip10" parent="Grips" instance=ExtResource("4_7di1l")]
 position = Vector2(-192, -512)
@@ -300,22 +660,31 @@ position = Vector2(-448, -3117)
 rotation = 0.261799
 
 [node name="Grip23" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(-128, -4928)
+position = Vector2(-1685, -4248)
 
-[node name="Grip24" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(966, -5267)
+[node name="Grip30" parent="Grips" instance=ExtResource("4_f673y")]
+position = Vector2(-1833, -6682)
+rotation = -0.0242369
+
+[node name="Grip36" parent="Grips" instance=ExtResource("4_f673y")]
+position = Vector2(1184, -5847)
+rotation = -0.696893
+
+[node name="Grip37" parent="Grips" instance=ExtResource("4_f673y")]
+position = Vector2(627, -6067)
+rotation = -1.42036
 
 [node name="Grip26" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(2304, -2816)
+position = Vector2(2358, -2713)
 rotation = -0.523598
 
 [node name="Grip29" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1472, -2880)
+position = Vector2(1598, -2813)
 rotation = 0.523598
 
 [node name="Grip20" parent="Grips" instance=ExtResource("4_f673y")]
 position = Vector2(1088, -1984)
 
 [node name="Grip21" parent="Grips" instance=ExtResource("4_f673y")]
-position = Vector2(1216, -2560)
+position = Vector2(1310, -2502)
 rotation = 0.523598

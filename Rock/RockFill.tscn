@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://36n5orlwyadx"]
+
+[ext_resource type="Texture2D" uid="uid://kqcy8kgu4eev" path="res://Rock/RockFill.png" id="1_rk0yq"]
+
+[node name="RockFill" type="Sprite2D"]
+texture = ExtResource("1_rk0yq")
